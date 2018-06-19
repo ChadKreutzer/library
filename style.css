@@ -1,3 +1,8 @@
 #wrapper {
   display: grid;
 }
+
+#library {
+  display: flex;
+  justify-content: space-evenly;
+}
