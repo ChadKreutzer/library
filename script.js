@@ -29,11 +29,7 @@ function render(books) {
     const newBook = document.createElement("li");
     newBook.classList.add("book");
     newBook.dataset.id = book.id;
-    newBook.innerHTML = `
-      <h3 class="title>${book.title}</h3>
-      <div class="author">${book.author}</div>
-      <div class="pages">${book.pages}</div>
-      <div class="read">${readStatus(book.read)}</div>`;
+    newBook.innerHTML = `<h3 class="title">${book.title}</h3><div class="author">${book.author}</div><div class="pages">${book.pages}</div><div class="read">${readStatus(book.read)}</div>`;
     library.appendChild(newBook);
   });
 }
