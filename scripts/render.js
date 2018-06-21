@@ -12,4 +12,4 @@ module.exports = function render(books) {
     `;
     library.appendChild(newBook);
   });
-}
+};

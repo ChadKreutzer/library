@@ -1,5 +1,5 @@
 const addBookToLibrary = require('./scripts/addBookToLibrary');
-const removeBookFromLibrary = require('./scripts/removeBookFromLibrary');
+const removeBookFromLibrary = require('./scripts/removeBookFromLibrary').default;
 const render = require('./scripts/render');
 
 const myLibrary = [];
