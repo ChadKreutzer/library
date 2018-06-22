@@ -8,6 +8,27 @@
 
 <body>
   <div id="wrapper">
+    <form id="add-books">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="book_title">
+      </div>
+      <div>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="book_author">
+      </div>
+      <div>
+        <label for="pages">Pages:</label>
+        <input type="text" id="pages" name="book_pages"></input>
+      </div>
+      <div>
+        <label for="read">Have I read it:</label>
+        <input type="checkbox" ind="read" name="book_read">
+      </div>
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
     <ul id="library"></ul>
   </div>
   <script type="text/javascript" src="bundle.js"></script>

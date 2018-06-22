@@ -1,8 +1,11 @@
 #wrapper {
   display: grid;
 }
-
+#add-books {
+  grid-row: 1;
+}
 #library {
+  grid-row: 2;
   display: flex;
   justify-content: space-evenly;
 }

@@ -2,13 +2,29 @@
 module.exports = function addBookToLibrary(library, book) {
   library.push(book);
 };
+
 },{}],2:[function(require,module,exports){
+const readStatus = (didIread) => didIread ? "I've read this" : 'not read yet';
+
+module.exports = class Book {
+  constructor(title, author, pages, read) {
+    this.id = (() => `${(new Date()).getTime()}${pages}`)();
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  info() {
+    return `${this.title} by ${this.author}, ${readStatus(this.read)}`;
+  }
+}
+},{}],3:[function(require,module,exports){
 module.exports = function removeBookFromLibrary(library, id) {
   const index = library.findIndex(book => book.id === id);
   library.splice(index, 1);
 };
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports = function render(books) {
   const library = document.getElementById("library");
   books.forEach(function (book) {
@@ -23,33 +39,23 @@ module.exports = function render(books) {
     `;
     library.appendChild(newBook);
   });
-}
-},{}],4:[function(require,module,exports){
+};
+
+},{}],5:[function(require,module,exports){
 const addBookToLibrary = require('./addBookToLibrary');
 const removeBookFromLibrary = require('./removeBookFromLibrary');
 const render = require('./render');
-
+const Book = require('./book');
 const myLibrary = [];
-const readStatus = (didIread) => didIread ? "I've read this" : 'not read yet';
-
-
-class Book {
-  constructor(title, author, pages, read) {
-    this.id = (() => `${(new Date()).getTime()}${pages}`)();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-  }
-  info() {
-    return `${this.title} by ${this.author}, ${readStatus(this.read)}`;
-  }
-}
 
 addBookToLibrary(myLibrary, new Book('The Hobbit', 'J.R.R. Tolkien', 295, false));
 
 addBookToLibrary(myLibrary, new Book('The Hunger Games', 'Suzanne Collins', 384, true));
 
+addBookToLibrary(myLibrary, new Book('The Cathedral and the Bazaar', 'Eric S. Raymond', 241, true));
+
+removeBookFromLibrary(myLibrary, (myLibrary[1]).id);
+
 render(myLibrary);
 
-},{"./addBookToLibrary":1,"./removeBookFromLibrary":2,"./render":3}]},{},[4]);
+},{"./addBookToLibrary":1,"./book":2,"./removeBookFromLibrary":3,"./render":4}]},{},[5]);
